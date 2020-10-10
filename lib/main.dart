@@ -9,10 +9,21 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          title: Text('My 1st App'),
+          title: Text('Personality Quiz'),
         ),
-        body: Text('Some text for fun :)'),
+        body: Column(
+          children: [
+            Text('Questions'),
+            RaisedButton(child: Text('A 1'), onPressed: this._answerQuestion),
+            RaisedButton(child: Text('A 2'), onPressed: this._answerQuestion),
+            RaisedButton(child: Text('A 3'), onPressed: this._answerQuestion),
+          ],
+        ),
       ),
     );
+  }
+
+  void _answerQuestion() {
+    print('Answer chose!');
   }
 }
