@@ -10,9 +10,9 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  var questionIndex = 0;
+  var _questionIndex = 0;
 
-  var questions = [
+  var _questions = [
     'Q 1',
     'Q 2',
     'Q 3'
@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Text(this.questions[this.questionIndex]),
+            Text(this._questions[this._questionIndex]),
             RaisedButton(child: Text('A 1'), onPressed: this._answerQuestion),
             RaisedButton(child: Text('A 2'), onPressed: this._answerQuestion),
             RaisedButton(child: Text('A 3'), onPressed: this._answerQuestion),
@@ -37,18 +37,18 @@ class _MyAppState extends State<MyApp> {
   }
 
   void _answerQuestion() {
-    print('Q index before: ' + this.questionIndex.toString());
+    print('Q index before: ' + this._questionIndex.toString());
     setState(() {
-      this.questionIndex++;
+      this._questionIndex++;
     });
-    print('Q index after: ' + this.questionIndex.toString());
+    print('Q index after: ' + this._questionIndex.toString());
 
-    if (this.questionIndex >= this.questions.length) {
+    if (this._questionIndex >= this._questions.length) {
       setState(() {
-        this.questionIndex = 0;
+        this._questionIndex = 0;
       });
-      print('Q index reset: ' + this.questionIndex.toString());
+      print('Q index reset: ' + this._questionIndex.toString());
     }
-    print('Question: ' + this.questions[this.questionIndex].toString());
+    print('Question: ' + this._questions[this._questionIndex].toString());
   }
 }
