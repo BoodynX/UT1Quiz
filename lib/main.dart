@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:udemy_tutorial/question.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -12,11 +14,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
 
-  var _questions = [
-    'Q 1',
-    'Q 2',
-    'Q 3'
-  ];
+  var _questions = ['Q 1', 'Q 2', 'Q 3'];
 
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,7 +24,7 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Text(this._questions[this._questionIndex]),
+            Question(this._questions[this._questionIndex]),
             RaisedButton(child: Text('A 1'), onPressed: this._answerQuestion),
             RaisedButton(child: Text('A 2'), onPressed: this._answerQuestion),
             RaisedButton(child: Text('A 3'), onPressed: this._answerQuestion),
