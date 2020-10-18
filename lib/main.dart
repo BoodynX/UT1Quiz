@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:udemy_tutorial/question.dart';
 
+import 'answer.dart';
+
 void main() {
   runApp(MyApp());
 }
@@ -25,9 +27,9 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Question(this._questions[this._questionIndex]),
-            RaisedButton(child: Text('A 1'), onPressed: this._answerQuestion),
-            RaisedButton(child: Text('A 2'), onPressed: this._answerQuestion),
-            RaisedButton(child: Text('A 3'), onPressed: this._answerQuestion),
+            Answer(this._answerQuestion),
+            Answer(this._answerQuestion),
+            Answer(this._answerQuestion),
           ],
         ),
       ),
