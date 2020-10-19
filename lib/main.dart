@@ -16,7 +16,20 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   var _questionIndex = 0;
 
-  var _questions = ['Q 1', 'Q 2', 'Q 3'];
+  var _questions = [
+    {
+      'questionText': 'What\'s your favorite color',
+      'answers': ['Black', 'Red', 'Green', 'White']
+    },
+    {
+      'questionText': 'What\'s your favorite car brand',
+      'answers': ['Toyota', 'Fiat', 'Dacia']
+    },
+    {
+      'questionText': 'What\'s your favorite food',
+      'answers': ['Sushi', 'Kebab', 'Pizza', 'Burger', 'Hot Dog']
+    },
+  ];
 
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -26,10 +39,11 @@ class _MyAppState extends State<MyApp> {
         ),
         body: Column(
           children: [
-            Question(this._questions[this._questionIndex]),
-            Answer(this._answerQuestion),
-            Answer(this._answerQuestion),
-            Answer(this._answerQuestion),
+            Question(this._questions[this._questionIndex]['questionText']),
+            ...(this._questions[this._questionIndex]['answers'] as List<String>)
+                .map((answer) {
+                  return Answer(this._answerQuestion, answer);
+            }).toList()
           ],
         ),
       ),
