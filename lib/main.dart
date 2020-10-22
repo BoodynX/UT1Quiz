@@ -56,9 +56,16 @@ class _MyAppState extends State<MyApp> {
                 questions: _questions,
                 questionIndex: this._questionIndex,
                 answerQuestion: this._answerQuestion)
-            : Result(_totalScore),
+            : Result(_totalScore, _resetQuiz),
       ),
     );
+  }
+
+  void _resetQuiz() {
+    setState(() {
+      _questionIndex = 0;
+      _totalScore = 0;
+    });
   }
 
   void _answerQuestion(int score) {
