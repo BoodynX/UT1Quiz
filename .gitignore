@@ -43,3 +43,5 @@ app.*.map.json
 # My ignores
 /android/
 /ios/
+.gradle
+local.properties
